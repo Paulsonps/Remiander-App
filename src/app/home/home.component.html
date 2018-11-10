@@ -19,8 +19,8 @@
   <label class="action-bar-title" text="Home"></label>
 </ActionBar>
 
-<GridLayout class="page page-content">
-  <RadRadialGauge margin="10">
+<GridLayout class="page page-content" rows="*, auto">
+  <RadRadialGauge margin="10" row="0">
     <RadialScale #myScale tkRadialGaugeScales startAngle="0" sweepAngle="360" minimum="0" maximum="100" radius="0.9">
       <ScaleStyle tkRadialScaleStyle ticksVisible="false" labelsVisible="false" lineThickness="0"></ScaleStyle>
 
@@ -42,11 +42,11 @@
       </RadialBarIndicator>
     </RadialScale>
   </RadRadialGauge>
-  <StackLayout class="m-x-auto m-y-auto">
-    <FlexboxLayout flexDirection="row" justifyContent="space-between">
-      <label [text]="timeLeft" class="text-center p-t-25"></label>
-      <button class="btn btn-primary btn-active " (tap)="startTimer()" text="start"></button>
-      <button class="btn btn-primary btn-active" (tap)="pauseTimer()" text="pause"></button>
-    </FlexboxLayout>
-  </StackLayout>
+  <FlexboxLayout class="m-x-auto m-y-auto" flexDirection="column" justifyContent="space-between">
+    <label [text]="timeLeft" class="text-center p-t-25"></label>
+    <button class="btn btn-primary btn-active " (tap)="startTimer()" text="start"></button>
+  </FlexboxLayout>
+  <FlexboxLayout row="1" flexDirection="row" justifyContent="center">
+    <button class="btn btn-primary btn-active" (tap)="pauseTimer()" text="pause"></button>
+  </FlexboxLayout>
 </GridLayout>
