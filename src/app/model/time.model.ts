@@ -1,4 +1,4 @@
 export class Time {
-  setTime: string;
+  setTime: number;
   setTask: string;
 }

@@ -1,26 +1,10 @@
 <ActionBar class="action-bar">
-  <<<<<<< HEAD
-  <!--
-    Use the NavigationButton as a side-drawer button in Android
-    because ActionItems are shown on the right side of the ActionBar
-  -->
   <NavigationButton
     ios:visibility="collapsed"
     icon="res://menu"
     (tap)="onDrawerButtonTap()"
   ></NavigationButton>
-  <!--
-    Use the ActionItem for IOS with position set to left. Using the
-    NavigationButton as a side-drawer button in iOS is not possible,
-    because its function is to always navigate back in the application.
-  -->
-  =======
-  <NavigationButton
-    ios:visibility="collapsed"
-    icon="res://menu"
-    (tap)="onDrawerButtonTap()"
-  ></NavigationButton>
-  >>>>>>> bc4f93e09ba6cead45bdca23966d10212e4abad5
+
   <ActionItem
     icon="res://navigation/menu"
     android:visibility="collapsed"
@@ -71,9 +55,9 @@
   >
     <label [text]="timeLeft" class="text-center p-t-25"></label>
     <button
-      class="btn btn-primary btn-active "
+      class="btn btn-primary fa"
       (tap)="startTimer()"
-      text="start"
+      text="&#xf04b;"
     ></button>
   </FlexboxLayout>
   <FlexboxLayout
@@ -83,9 +67,17 @@
     row="1"
   >
     <label text="Set timer" class="label font-weight-bold m-b-5"></label>
-    <TextField class="input" [(ngModel)]="time.setTime"></TextField>
+    <TextField
+      class="input"
+      [(ngModel)]="time.setTime"
+      keyboardType="number"
+    ></TextField>
     <label text="Set task" class="label font-weight-bold m-b-5"></label>
-    <TextField class="input" [(ngModel)]="time.setTask"></TextField>
+    <TextField
+      class="input"
+      keyboardType="email"
+      [(ngModel)]="time.setTask"
+    ></TextField>
   </FlexboxLayout>
 
   <FlexboxLayout row="2" flexDirection="row" justifyContent="center">
