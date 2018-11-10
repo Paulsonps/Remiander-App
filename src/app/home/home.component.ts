@@ -6,12 +6,19 @@ import { RadialScale, RadialBarIndicator } from 'nativescript-ui-gauge';
 @Component({
   selector: 'Home',
   moduleId: module.id,
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements AfterViewInit {
   timeLeft: number = 60;
   interval;
-  constructor() {}
+  //   time: number
+  constructor() {
+    // let dateFormat = require('dateformat');
+    // let now = Date.now();
+    // this.time = dateFormat(now, 'dddd, mmmm dS, yyyy, h:MM:ss TT');
+    // console.log('date', this.time);
+  }
 
   ngAfterViewInit() {}
 
