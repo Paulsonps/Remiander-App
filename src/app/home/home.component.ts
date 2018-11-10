@@ -13,7 +13,8 @@ import { Time } from '../model/time.model';
 @Component({
   selector: 'Home',
   moduleId: module.id,
-  templateUrl: './home.component.html'
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   time: Time;
@@ -25,6 +26,8 @@ export class HomeComponent {
     this.time.setTime = '100';
     this.time.setTask = 'My init task';
   }
+
+  ngAfterViewInit() {}
 
   startTimer() {
     this.interval = setInterval(() => {

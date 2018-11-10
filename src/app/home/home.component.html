@@ -1,4 +1,5 @@
 <ActionBar class="action-bar">
+  <<<<<<< HEAD
   <!--
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
@@ -13,6 +14,13 @@
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
   -->
+  =======
+  <NavigationButton
+    ios:visibility="collapsed"
+    icon="res://menu"
+    (tap)="onDrawerButtonTap()"
+  ></NavigationButton>
+  >>>>>>> bc4f93e09ba6cead45bdca23966d10212e4abad5
   <ActionItem
     icon="res://navigation/menu"
     android:visibility="collapsed"
@@ -23,12 +31,12 @@
   <label class="action-bar-title" text="Home"></label>
 </ActionBar>
 
-<GridLayout class="page page-content" rows="*, auto,auto">
+<GridLayout class="" rows="*, auto,auto">
   <RadRadialGauge margin="10" row="0">
     <RadialScale
       #myScale
       tkRadialGaugeScales
-      startAngle="0"
+      startAngle="-87"
       sweepAngle="360"
       minimum="0"
       maximum="100"
@@ -40,20 +48,6 @@
         labelsVisible="false"
         lineThickness="0"
       ></ScaleStyle>
-
-      <RadialBarIndicator
-        tkRadialScaleIndicators
-        minimum="0"
-        maximum="100"
-        location="1"
-      >
-        <BarIndicatorStyle
-          tkRadialBarIndicatorStyle
-          fillColor="rgba(132,235,247,0.5)"
-          barWidth="0.2"
-        ></BarIndicatorStyle>
-      </RadialBarIndicator>
-
       <RadialBarIndicator
         tkRadialScaleIndicators
         minimum="0"
@@ -64,7 +58,7 @@
         <BarIndicatorStyle
           tkRadialBarIndicatorStyle
           cap="Round"
-          fillColor="rgba(132,235,247,1)"
+          fillColor="#ce5252"
           barWidth="0.2"
         ></BarIndicatorStyle>
       </RadialBarIndicator>
@@ -96,9 +90,9 @@
 
   <FlexboxLayout row="2" flexDirection="row" justifyContent="center">
     <button
-      class="btn btn-primary btn-active"
-      (tap)="pauseTimer()"
-      text="pause"
+      class="btn btn-primary fa"
+      (tap)="startTimer()"
+      text="&#xf04b;"
     ></button>
   </FlexboxLayout>
 </GridLayout>
