@@ -1,24 +1,36 @@
-import { Component, OnInit } from "@angular/core";
-import { RadSideDrawer } from "nativescript-ui-sidedrawer";
-import * as app from "tns-core-modules/application";
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
+import * as app from 'tns-core-modules/application';
+import { RadialScale, RadialBarIndicator } from 'nativescript-ui-gauge';
 
 @Component({
-    selector: "Home",
-    moduleId: module.id,
-    templateUrl: "./home.component.html"
+  selector: 'Home',
+  moduleId: module.id,
+  templateUrl: './home.component.html'
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
+  timeLeft: number = 60;
+  interval;
+  constructor() {}
 
-    constructor() {
-        // Use the component constructor to inject providers.
-    }
+  ngAfterViewInit() {}
 
-    ngOnInit(): void {
-        // Init your component properties here.
-    }
+  startTimer() {
+    this.interval = setInterval(() => {
+      if (this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.timeLeft = 60;
+      }
+    }, 1000);
+  }
 
-    onDrawerButtonTap(): void {
-        const sideDrawer = <RadSideDrawer>app.getRootView();
-        sideDrawer.showDrawer();
-    }
+  pauseTimer() {
+    clearInterval(this.interval);
+  }
+
+  onDrawerButtonTap(): void {
+    const sideDrawer = <RadSideDrawer>app.getRootView();
+    sideDrawer.showDrawer();
+  }
 }

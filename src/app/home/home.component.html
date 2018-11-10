@@ -1,21 +1,52 @@
 <ActionBar class="action-bar">
-    <!-- 
+  <!--
     Use the NavigationButton as a side-drawer button in Android
     because ActionItems are shown on the right side of the ActionBar
-    -->
-    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
-    <!-- 
+  -->
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+  <!--
     Use the ActionItem for IOS with position set to left. Using the
     NavigationButton as a side-drawer button in iOS is not possible,
     because its function is to always navigate back in the application.
-    -->
-    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
-        ios.position="left">
-    </ActionItem>
-    <Label class="action-bar-title" text="Home"></Label>
+  -->
+  <ActionItem
+    icon="res://navigation/menu"
+    android:visibility="collapsed"
+    (tap)="onDrawerButtonTap()"
+    ios.position="left"
+  >
+  </ActionItem>
+  <label class="action-bar-title" text="Home"></label>
 </ActionBar>
 
 <GridLayout class="page page-content">
-    <Label class="page-icon fa" text="&#xf015;"></Label>
-    <Label class="page-placeholder" text="<!-- Page content goes here -->"></Label>
+  <RadRadialGauge margin="10">
+    <RadialScale #myScale tkRadialGaugeScales startAngle="0" sweepAngle="360" minimum="0" maximum="100" radius="0.9">
+      <ScaleStyle tkRadialScaleStyle ticksVisible="false" labelsVisible="false" lineThickness="0"></ScaleStyle>
+
+      <RadialBarIndicator tkRadialScaleIndicators minimum="0" maximum="100" location="1">
+        <BarIndicatorStyle
+          tkRadialBarIndicatorStyle
+          fillColor="rgba(132,235,247,0.5)"
+          barWidth="0.2"
+        ></BarIndicatorStyle>
+      </RadialBarIndicator>
+
+      <RadialBarIndicator tkRadialScaleIndicators minimum="0" [maximum]="timeLeft" location="1" isAnimated="true">
+        <BarIndicatorStyle
+          tkRadialBarIndicatorStyle
+          cap="Round"
+          fillColor="rgba(132,235,247,1)"
+          barWidth="0.2"
+        ></BarIndicatorStyle>
+      </RadialBarIndicator>
+    </RadialScale>
+  </RadRadialGauge>
+  <StackLayout class="m-x-auto m-y-auto">
+    <FlexboxLayout flexDirection="row" justifyContent="space-between">
+      <label [text]="timeLeft" class="text-center p-t-25"></label>
+      <button class="btn btn-primary btn-active " (tap)="startTimer()" text="start"></button>
+      <button class="btn btn-primary btn-active" (tap)="pauseTimer()" text="pause"></button>
+    </FlexboxLayout>
+  </StackLayout>
 </GridLayout>
