@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  AfterViewInit,
-  ViewChild,
-  ElementRef
-} from '@angular/core';
+import { Component, OnInit, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { RadSideDrawer } from 'nativescript-ui-sidedrawer';
 import * as app from 'tns-core-modules/application';
 import { RadialScale, RadialBarIndicator } from 'nativescript-ui-gauge';
@@ -33,7 +27,7 @@ export class HomeComponent {
   ngAfterViewInit() {}
 
   startTimer() {
-    this.maxTime = this.time.setTime;
+    this.maxTime = this.time.setTime * 60;
     console.log('got time', this.time.setTime);
     console.log('got task', this.time.setTask);
     this.timeLeft = 0;

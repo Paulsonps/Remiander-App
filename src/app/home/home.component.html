@@ -1,9 +1,5 @@
 <ActionBar class="action-bar">
-  <NavigationButton
-    ios:visibility="collapsed"
-    icon="res://menu"
-    (tap)="onDrawerButtonTap()"
-  ></NavigationButton>
+  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
 
   <ActionItem
     icon="res://navigation/menu"
@@ -17,74 +13,25 @@
 
 <GridLayout class="" rows="*, auto,auto">
   <RadRadialGauge margin="10" row="0">
-    <RadialScale
-      #myScale
-      tkRadialGaugeScales
-      startAngle="-87"
-      sweepAngle="360"
-      minimum="0"
-      maximum="100"
-      radius="0.9"
-    >
-      <ScaleStyle
-        tkRadialScaleStyle
-        ticksVisible="false"
-        labelsVisible="false"
-        lineThickness="0"
-      ></ScaleStyle>
-      <RadialBarIndicator
-        tkRadialScaleIndicators
-        minimum="0"
-        [maximum]="timeLeft"
-        location="1"
-        isAnimated="true"
-      >
-        <BarIndicatorStyle
-          tkRadialBarIndicatorStyle
-          cap="Round"
-          fillColor="#ce5252"
-          barWidth="0.2"
-        ></BarIndicatorStyle>
+    <RadialScale #myScale tkRadialGaugeScales startAngle="-87" sweepAngle="360" minimum="0" maximum="100" radius="0.9">
+      <ScaleStyle tkRadialScaleStyle ticksVisible="false" labelsVisible="false" lineThickness="0"></ScaleStyle>
+      <RadialBarIndicator tkRadialScaleIndicators minimum="0" [maximum]="timeMax" location="1" isAnimated="true">
+        <BarIndicatorStyle tkRadialBarIndicatorStyle cap="Round" fillColor="#ce5252" barWidth="0.2"></BarIndicatorStyle>
       </RadialBarIndicator>
     </RadialScale>
   </RadRadialGauge>
-  <FlexboxLayout
-    class="m-x-auto m-y-auto"
-    flexDirection="column"
-    justifyContent="space-between"
-  >
+  <FlexboxLayout class="m-x-auto m-y-auto" flexDirection="column" justifyContent="space-between">
     <label [text]="timeLeft" class="text-center p-t-25"></label>
-    <button
-      class="btn btn-primary fa"
-      (tap)="startTimer()"
-      text="&#xf04b;"
-    ></button>
+    <label class="icon-color h1 fa" (tap)="pauseTimer()" text="&#xf04c;"></label>
   </FlexboxLayout>
-  <FlexboxLayout
-    flexDirection="column"
-    justifyContent="center"
-    class="input-field"
-    row="1"
-  >
+  <FlexboxLayout flexDirection="column" justifyContent="center" class="input-field" row="1">
     <label text="Set timer" class="label font-weight-bold m-b-5"></label>
-    <TextField
-      class="input"
-      [(ngModel)]="time.setTime"
-      keyboardType="number"
-    ></TextField>
+    <TextField class="input" [(ngModel)]="time.setTime" keyboardType="number"></TextField>
     <label text="Set task" class="label font-weight-bold m-b-5"></label>
-    <TextField
-      class="input"
-      keyboardType="email"
-      [(ngModel)]="time.setTask"
-    ></TextField>
+    <TextField class="input" keyboardType="email" [(ngModel)]="time.setTask"></TextField>
   </FlexboxLayout>
 
   <FlexboxLayout row="2" flexDirection="row" justifyContent="center">
-    <button
-      class="btn btn-primary fa"
-      (tap)="startTimer()"
-      text="&#xf04b;"
-    ></button>
+    <button class="btn btn-primary fa" (tap)="startTimer()" text="&#xf04b;"></button>
   </FlexboxLayout>
 </GridLayout>
